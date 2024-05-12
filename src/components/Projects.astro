@@ -1,0 +1,63 @@
+---
+import React from "./icons/React.astro";
+import Mongo from "./icons/MongoDB.astro";
+import Node from "./icons/Node.astro";
+
+const TAGS = {
+  React: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: React,
+  },
+  NodeJS: {
+    name: "Node.js",
+    class: "bg-black text-white",
+    icon: Mongo,
+  },
+  MongoDB: {
+    name: "MongoDB",
+    class: "bg-black text-white",
+    icon: Node,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "PhoneBook",
+    description:
+      "PhoneBook to add, update and delete contacts with name and number",
+    link: "#",
+    github: "#",
+    image: "/PhoneBook.webp",
+    tags: [TAGS.React, TAGS.NodeJS, TAGS.MongoDB],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, image }) => {
+    return (
+      <article>
+        <h3 class="text-2xl font-semi-bold text-red-200/80 mb-2">{title}</h3>
+        <p class="text-lg mb-4 text-pretty text-white">{description}</p>
+        <ul class="flex gap-x-2 flex-row mb-2">
+          {tags.map((tag) => (
+            <li class="text-white">
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 border items-center`}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          class="rounded shadow-2xl shadow-white/20"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+        />
+      </article>
+    );
+  })
+}
