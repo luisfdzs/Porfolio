@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GmailIcon from "../components/icons/Gmail.astro";
+import SocialMedia from "../components/SocialMedia.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Briefcase from "../components/icons/Briefcase.astro";
+---
+
+<!-- 37:09 -->
+<Layout
+  title="Porfolio Luis Fernández Sangil - Desarrollador y Programador Web con 3 años de experiencia"
+  description="Contrata a Luis para crear tu aplicación web. Desarrollador Web especializado en crear aplicaciones únicas."
+>
+  <main>
+    <SectionContainer class="py-44 pb-24">
+      <img
+        class="rounded-full w-20 h-20 mb-4"
+        src="https://avatars.githubusercontent.com/u/115920011?v=4"
+        alt="Luis photo"
+      />
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        Hey, soy luis
+      </h1>
+      <h2 class="text-2xl opacity-80 text-grap">
+        Tengo <span class="text-green-200/90">+3 años de experiencia</span> como
+        <span class="text-red-200/90">Desarrollador Web.</span> Soy de Vigo, Galicia
+        . Especializado en crear aplicaciones únicas
+      </h2>
+      <nav class="flex gap-x-4 mt-8">
+        <SocialMedia
+          href="https://www.linkedin.com/in/luis-fernández-sangil-3b0a86235"
+        >
+          <LinkedInIcon class="size-6" />LinkedIn
+        </SocialMedia>
+        <SocialMedia href="https://github.com/luisfdzs">
+          <GitHubIcon class="size-6" />GitHub
+        </SocialMedia>
+        <SocialMedia href="https://github.com/luisfdzs">
+          <GmailIcon class="size-6" />luisfsangil@gmail.com
+        </SocialMedia>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl font-semi-bold mb-6 flex gap-x-3 items-center">
+        <Briefcase class="size-7" />
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+  </main>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    title: "FullStack Engineer",
+    company: "Exceltic - Grupo Ingeteam",
+    date: "Marzo 2023 - Mayo 2024",
+    description:
+      "Diseño, desarrollo y mantenimiento de ERPs y aplicaciones web para gestión interna de la empresa. ",
+    link: "#",
+  },
+  {
+    title: "FullStack Developer",
+    company: "IATECC",
+    date: "Junio 2022 - Enero 2023",
+    description:
+      "Diseño, desarrollo y mantenimiento de ERPs y aplicaciones web para gestión interna de la empresa. ",
+    link: "#",
+  },
+  {
+    title: "Programador de AGVs",
+    company: "Zemsania - ABB Robotics",
+    date: "Agosto 2021 - Junio 2022",
+    description: "Programación de vehículos de guiado automático o AGVs. ",
+    link: "#",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
