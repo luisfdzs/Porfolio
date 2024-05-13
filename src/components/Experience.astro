@@ -1,5 +1,31 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
+import React from "./icons/React.astro";
+import Mongo from "./icons/MongoDB.astro";
+import Node from "./icons/Node.astro";
+
+const TAGS = {
+  VisualBasic: {
+    name: "Visual Basic",
+    class: "bg-black text-white",
+    icon: "../public/VB.webp",
+  },
+  React: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: React,
+  },
+  NodeJS: {
+    name: "Node.js",
+    class: "bg-black text-white",
+    icon: Mongo,
+  },
+  MongoDB: {
+    name: "MongoDB",
+    class: "bg-black text-white",
+    icon: Node,
+  },
+};
 
 const EXPERIENCE = [
   {
@@ -7,8 +33,9 @@ const EXPERIENCE = [
     company: "Exceltic - Grupo Ingeteam",
     date: "Marzo 2023 - Mayo 2024",
     description:
-      "Diseño, desarrollo y mantenimiento de ERPs y aplicaciones web para gestión interna de la empresa. ",
+      "Diseño, desarrollo y mantenimiento de ERPs para gestión interna de la empresa cliente. Responsable de mantener las distintas aplicaciones web, resolver incidencias de los usuarios y escalar las soluciones actuales mejorando su arquitectura y migrando hacia tecnologías más modernas",
     link: "#",
+    tags: [TAGS.React, TAGS.NodeJS, TAGS.MongoDB],
   },
   {
     title: "FullStack Developer",
