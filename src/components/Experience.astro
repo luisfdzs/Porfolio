@@ -42,12 +42,12 @@ const TAGS = {
   NodeJS: {
     name: "Node.js",
     class: "bg-black text-white",
-    icon: Mongo,
+    icon: Node,
   },
   MongoDB: {
     name: "MongoDB",
     class: "bg-black text-white",
-    icon: Node,
+    icon: Mongo,
   },
 };
 
@@ -110,7 +110,7 @@ const EXPERIENCE = [
               <span
                 class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 border items-center`}
               >
-                <tag.icon />
+                <tag.icon class="size-7" />
                 {tag.name}
               </span>
             </li>
