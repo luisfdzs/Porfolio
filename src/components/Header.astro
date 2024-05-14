@@ -3,7 +3,6 @@ import ArrowUp from "./icons/ArrowUp.astro";
 ---
 
 <header
-  style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);background: linear-gradient(to right, black 0%, #1f1e2e 35%,#1f1e2e 50%,#1f1e2e 65%, black 100%);"
   class={`
     nav-header
     fixed    
@@ -24,7 +23,7 @@ import ArrowUp from "./icons/ArrowUp.astro";
 <style>
   /* Estilo para pantallas de ordenador */
   @media only screen and (min-width: 1000px) {
-    .tu-elemento {
+    .nav-header {
       background: linear-gradient(
         to right,
         black 0%,
@@ -37,7 +36,7 @@ import ArrowUp from "./icons/ArrowUp.astro";
 
   /* Estilo para móviles */
   @media only screen and (max-width: 1000px) {
-    .tu-elemento {
+    .nav-header {
       background: linear-gradient(
         to right,
         black 0%,
