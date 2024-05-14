@@ -1,12 +1,17 @@
 ---
-// interface Props {
-//   title: string;
-//   description: string;
-//   link?: string;
-//   date: string;
-//   company: string;
-//   tags: [];
-// }
+interface Tag {
+  class: string;
+  name: string;
+  icon: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  link?: string;
+  date: string;
+  company: string;
+  tags: Tag[];
+}
 
 const { title, description, link, date, company, tags } = Astro.props;
 ---
