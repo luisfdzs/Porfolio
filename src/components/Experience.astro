@@ -65,6 +65,9 @@ const EXPERIENCE = [
       TAGS.CSharp,
       TAGS.SQL,
       TAGS.JavaScript,
+      TAGS.NodeJS,
+      TAGS.MongoDB,
+      TAGS.React,
     ],
   },
   {
@@ -74,7 +77,16 @@ const EXPERIENCE = [
     description:
       "Encargado de la migración de herramientas heredadas y de desarrollos de nuevas soluciones web para mejorar la eficiencia y efectividad de los procesos productivos. Modalidad de trabajo híbrida, formando parte del equipo de desarrolladores.",
     link: "https://www.iatecc.com/",
-    tags: [TAGS.VisualBasic, TAGS.CSharp, TAGS.MongoDB],
+    tags: [
+      TAGS.VisualBasic,
+      TAGS.MongoDB,
+      TAGS.DotNet,
+      TAGS.SQL,
+      TAGS.JavaScript,
+      TAGS.CSharp,
+      TAGS.React,
+      TAGS.NodeJS,
+    ],
   },
   {
     title: "Programador de AGVs",
@@ -83,7 +95,16 @@ const EXPERIENCE = [
     description:
       "Responsable Junior en el departamento IT, encargado de la programación de vehículos de guiado automático o AGVs. Definir el esquema funcional del cliente, desarrollar la solución integral para la automatización de la planta y realizar la puesta en marcha.",
     link: "https://new.abb.com/products/robotics/es/robots/autonomous-mobile-robots",
-    tags: [TAGS.VisualBasic, TAGS.CSharp, TAGS.MongoDB],
+    tags: [
+      TAGS.DotNet,
+      TAGS.VisualBasic,
+      TAGS.SQL,
+      TAGS.CSharp,
+      TAGS.React,
+      TAGS.NodeJS,
+      TAGS.MongoDB,
+      TAGS.JavaScript,
+    ],
   },
 ];
 ---
@@ -91,53 +112,117 @@ const EXPERIENCE = [
 <ol class="relative border-s border-gray-200 ml-3">
   {
     EXPERIENCE.map(({ date, title, company, description, link, tags }) => (
-      <li class="mb-10 ms-6">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
-        <time class="mb-1 text-sm font-normal leading-none text-sky-200/90 dark:text-gray-500">
-          {date}
-        </time>
-        <h3 class="text-2xl font-bold text-red-200/80 mt-4">{title}</h3>
-        <h3 class="text-xl text-green-200/80">{company}</h3>
-        <p class="mt-4 mb-4 text-base font-normal text-gray-200 text-pretty">
-          {description}
-        </p>
-        <ul class="flex gap-x-2 flex-row mb-2">
-          {tags.map((tag) => (
-            <li class="text-white">
-              <span
-                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 border items-center`}
-              >
-                <tag.icon class="size-7" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-          >
-            Saber más...{" "}
-            <svg
-              class="w-3 h-3 ms-2 rtl:rotate-180"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 10"
+      <>
+        <li class="mb-10 ms-6">
+          <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
+          <time class="mb-1 text-sm font-normal leading-none text-sky-200/90 dark:text-gray-500">
+            {date}
+          </time>
+          <h3 class="text-2xl font-bold text-red-200/80 mt-4">{title}</h3>
+          <h3 class="text-xl text-green-200/80">{company}</h3>
+          <p class="mt-4 mb-4 text-base font-normal text-gray-200 text-pretty">
+            {description}
+          </p>
+          <ul class="flex gap-x-2 flex-row mb-2 w-[350px]">
+            <div class="logos">
+              <div class="logos-slide">
+                {tags.map((tag) => (
+                  <li class="text-white">
+                    <span
+                      class={`flex rounded-full text-xs ${tag.class} py-1 px-2 mb-4 items-center`}
+                    >
+                      <tag.icon class="size-7" />
+                    </span>
+                  </li>
+                ))}
+              </div>
+            </div>
+          </ul>
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 5h12m0 0L9 1m4 4L9 9"
-              />
-            </svg>
-          </a>
-        )}
-      </li>
+              Saber más...{" "}
+              <svg
+                class="w-3 h-3 ms-2 rtl:rotate-180"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+          )}
+        </li>
+      </>
     ))
   }
 </ol>
+<script>
+  var slides = document.querySelectorAll(".logos-slide");
+  slides.forEach((slide) => {
+    var copy = slide.cloneNode(true);
+    if (slide.parentNode) slide.parentNode.appendChild(copy);
+  });
+</script>
+<style>
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .logos {
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+  }
+
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0));
+  }
+
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0));
+  }
+
+  .logos-slide {
+    display: inline-block;
+    animation: 10s slide infinite linear;
+  }
+
+  .logos-slide > li {
+    display: inline-block; /* Esto asegura que los íconos se muestren en una fila horizontal */
+  }
+
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }
+</style>
