@@ -21,3 +21,31 @@ import ArrowUp from "./icons/ArrowUp.astro";
     <a class="hover:scale-110 transition" href="#contacto">Contacto</a>
   </nav>
 </header>
+<style>
+  /* Estilo para pantallas de ordenador */
+  @media only screen and (min-width: 1000px) {
+    .tu-elemento {
+      background: linear-gradient(
+        to right,
+        black 0%,
+        #1f1e2e 35%,
+        #1f1e2e 50%,
+        #1f1e2e 65%,
+        black 100%
+      );
+    }
+  }
+
+  /* Estilo para móviles */
+  @media only screen and (max-width: 1000px) {
+    .tu-elemento {
+      background: linear-gradient(
+        to right,
+        black 0%,
+        #1f1e2e 20%,
+        #1f1e2e 80%,
+        black 100%
+      );
+    }
+  }
+</style>
