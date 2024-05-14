@@ -3,18 +3,15 @@ import ArrowUp from "./icons/ArrowUp.astro";
 ---
 
 <header
-  style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)"
+  style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);background: linear-gradient(to right, black 0%, #1f1e2e 35%,#1f1e2e 50%,#1f1e2e 65%, black 100%);"
   class={`
     nav-header
     fixed    
     m-auto
-    ml-10
-    xl:ml-0
     py-5
-    w-[100vw]
+    w-[100%]
     flex justify-center items-center
     z-10
-    mx-auto
   `}
 >
   <nav class="flex flex-row gap-x-10 opacity-80">
@@ -24,26 +21,3 @@ import ArrowUp from "./icons/ArrowUp.astro";
     <a class="hover:scale-110 transition" href="#contacto">Contacto</a>
   </nav>
 </header>
-
-<style>
-  /* Estilo para pantallas de ordenador */
-  @media only screen and (min-width: 1000px) {
-    .nav-header {
-      background: linear-gradient(
-        to right,
-        black 0%,
-        #1f1e2e 35%,
-        #1f1e2e 50%,
-        #1f1e2e 65%,
-        black 100%
-      );
-    }
-  }
-
-  /* Estilo para móviles */
-  @media only screen and (max-width: 1000px) {
-    .nav-header {
-      background: #1f1e2e;
-    }
-  }
-</style>
