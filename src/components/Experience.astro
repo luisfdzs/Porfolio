@@ -3,12 +3,37 @@ import ExperienceItem from "./ExperienceItem.astro";
 import React from "./icons/React.astro";
 import Mongo from "./icons/MongoDB.astro";
 import Node from "./icons/Node.astro";
+import CSharp from "./icons/CSharp.astro";
+import VisualBasic from "./icons/VisualBasic.astro";
+import SQL from "./icons/SQL.astro";
+import DotNet from "./icons/DotNet.astro";
+import JavaScript from "./icons/JavaScript.astro";
 
 const TAGS = {
   VisualBasic: {
-    name: "Visual Basic",
+    name: "VB",
     class: "bg-black text-white",
-    icon: "../public/VB.webp",
+    icon: VisualBasic,
+  },
+  CSharp: {
+    name: "C#",
+    class: "bg-black text-white",
+    icon: CSharp,
+  },
+  SQL: {
+    name: "SQL",
+    class: "bg-black text-white",
+    icon: SQL,
+  },
+  DotNet: {
+    name: ".NET",
+    class: "bg-black text-white",
+    icon: DotNet,
+  },
+  JavaScript: {
+    name: "JS",
+    class: "bg-black text-white",
+    icon: JavaScript,
   },
   React: {
     name: "React",
@@ -35,7 +60,13 @@ const EXPERIENCE = [
     description:
       "Responsable de mantener distintas aplicaciones web de todo el grupo empresarial, resolver incidencias de distintos usuarios y de escalar las soluciones actuales mejorando su arquitectura y migrando hacia tecnologías más modernas. Modalidad 100% remoto y autonomía total en los desarrollos.",
     link: "https://exceltic.com/",
-    tags: [TAGS.React, TAGS.NodeJS, TAGS.MongoDB],
+    tags: [
+      TAGS.VisualBasic,
+      TAGS.DotNet,
+      TAGS.CSharp,
+      TAGS.SQL,
+      TAGS.JavaScript,
+    ],
   },
   {
     title: "FullStack Developer",
@@ -44,6 +75,7 @@ const EXPERIENCE = [
     description:
       "Encargado de la migración de herramientas heredadas y de desarrollos de nuevas soluciones web para mejorar la eficiencia y efectividad de los procesos productivos. Modalidad de trabajo híbrida, formando parte del equipo de desarrolladores.",
     link: "https://www.iatecc.com/",
+    tags: [TAGS.VisualBasic, TAGS.CSharp, TAGS.MongoDB],
   },
   {
     title: "Programador de AGVs",
@@ -52,6 +84,7 @@ const EXPERIENCE = [
     description:
       "Responsable Junior en el departamento IT, encargado de la programación de vehículos de guiado automático o AGVs. Definir el esquema funcional del cliente, desarrollar la solución integral para la automatización de la planta y realizar la puesta en marcha.",
     link: "https://new.abb.com/products/robotics/es/robots/autonomous-mobile-robots",
+    tags: [TAGS.VisualBasic, TAGS.CSharp, TAGS.MongoDB],
   },
 ];
 ---
@@ -59,7 +92,7 @@ const EXPERIENCE = [
 <ol class="relative border-s border-gray-200 ml-3">
   {
     EXPERIENCE.map((experience) => (
-      <li class="mb-10 ms-4">
+      <li class="mb-10 ms-6">
         <ExperienceItem {...experience} />
       </li>
     ))

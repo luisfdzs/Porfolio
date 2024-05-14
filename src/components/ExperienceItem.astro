@@ -1,12 +1,14 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  link?: string;
-  date: string;
-  company: string;
-}
-const { title, description, link, date, company } = Astro.props;
+// interface Props {
+//   title: string;
+//   description: string;
+//   link?: string;
+//   date: string;
+//   company: string;
+//   tags: [];
+// }
+
+const { title, description, link, date, company, tags } = Astro.props;
 ---
 
 <div
@@ -27,6 +29,20 @@ const { title, description, link, date, company } = Astro.props;
 <p class="mt-4 mb-4 text-base font-normal text-gray-200 text-pretty">
   {description}
 </p>
+<ul class="flex gap-x-2 flex-row mb-2">
+  {
+    tags.map((tag) => (
+      <li class="text-white">
+        <span
+          class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 border items-center`}
+        >
+          <tag.icon class="size-7" />
+          {tag.name}
+        </span>
+      </li>
+    ))
+  }
+</ul>
 {
   link && (
     <a
