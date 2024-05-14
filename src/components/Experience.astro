@@ -131,7 +131,11 @@ const EXPERIENCE = [
                     <span
                       class={`flex rounded-full text-xs ${tag.class} py-1 px-2 mb-4 items-center`}
                     >
-                      <tag.icon class="size-7" />
+                      <div class="flex flex-col items-center px-2">
+                        <tag.icon class="size-7" />
+                        <br />
+                        {tag.name}
+                      </div>
                     </span>
                   </li>
                 ))}
@@ -214,7 +218,7 @@ const EXPERIENCE = [
 
   .logos-slide {
     display: inline-block;
-    animation: 10s slide infinite linear;
+    animation: 30s slide infinite linear;
   }
 
   .logos-slide > li {
