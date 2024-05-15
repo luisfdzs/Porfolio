@@ -87,7 +87,7 @@ import Projects from "../components/Projects.astro";
     const navLinks = document.querySelectorAll(".nav-link");
     const options = {
       root: null,
-      threshold: 0.1, // Reducido a 0.1 para mayor sensibilidad
+      threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -97,9 +97,7 @@ import Projects from "../components/Projects.astro";
           if (history.state !== newUrl) {
             history.replaceState(null, document.title, newUrl);
           }
-          // Remove active class from all links
           navLinks.forEach((link) => link.classList.remove("active"));
-          // Add active class to the link corresponding to the current section
           const activeLink = document.querySelector(`a[href="${newUrl}"]`);
           if (activeLink) {
             activeLink.classList.add("active");
@@ -112,7 +110,6 @@ import Projects from "../components/Projects.astro";
       observer.observe(section);
     });
 
-    // Prioritize the section occupying the most space in the viewport
     window.addEventListener("scroll", () => {
       let maxVisibleArea = 0;
       let currentSection = "";
