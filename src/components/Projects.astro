@@ -96,7 +96,7 @@ const PROJECTS = [
           <h3 class="text-2xl font-bold text-red-200/80 mb-2">{title}</h3>
           <h3 class="text-2xl text-green-200/80 mb-2">{subtitle}</h3>
           <p class="text-lg my-4 text-pretty text-white">{description}</p>
-          <ul class="flex gap-x-2 flex-row mb-4">
+          <ul class="flex gap-x-2 flex-row mb-4 w-[800px]">
             <div class="logos">
               <div class="logos-slide">
                 {tags.map((tag) => (
@@ -172,7 +172,7 @@ const PROJECTS = [
 
   .logos-slide {
     display: inline-block;
-    animation: 30s slide infinite linear;
+    animation: 20s slide infinite linear;
   }
 
   .logos-slide > li {
