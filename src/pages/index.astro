@@ -94,7 +94,7 @@ import Projects from "../components/Projects.astro";
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          history.replaceState(null, null, `#${entry.target.id}`);
+          history.replaceState(null, document.title, `#${entry.target.id}`);
         }
       });
     }, options);
