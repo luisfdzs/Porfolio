@@ -18,7 +18,7 @@ import Projects from "../components/Projects.astro";
   description="Contrata a Luis para crear tu aplicación web. Desarrollador Web especializado en crear aplicaciones únicas."
 >
   <main class="px-4 pl-20 lg:pb-0">
-    <SectionContainer id="top" class="mt-40 lg:mt-0 pt-24 lg:py-44 pb-32">
+    <SectionContainer id="top" class="pt-64">
       <img
         class="rounded-full w-20 h-20 mb-4"
         src="/luisPhoto.webp"
@@ -51,14 +51,14 @@ import Projects from "../components/Projects.astro";
       </nav>
     </SectionContainer>
     <SectionContainer id="sobre-mi" />
-    <SectionContainer id="experiencia">
+    <SectionContainer id="experiencia" class="pt-20">
       <h2 class="text-3xl font-semi-bold mb-6 flex gap-x-3 items-center">
         <Briefcase class="size-7" />
         Experiencia laboral
       </h2>
       <Experience />
     </SectionContainer>
-    <SectionContainer id="proyectos">
+    <SectionContainer id="proyectos" class="pt-20">
       <h2 class="text-3xl font-semi-bold mb-6 flex gap-x-3 items-center">
         <CodeIcon class="size-7" />
         Proyectos
@@ -71,16 +71,36 @@ import Projects from "../components/Projects.astro";
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    let textElement = document.getElementById("text");
-    const text = "Hola, soy Luis.";
-    let index = 0;
-    function typeWriter() {
+    const typeWriter = () => {
       if (textElement === null) return;
       if (index >= text.length) return;
       textElement.textContent += text.charAt(index);
       index++;
       setTimeout(typeWriter, 65);
-    }
+    };
+
+    let textElement = document.getElementById("text");
+    const text = "Hola, soy Luis.";
+    let index = 0;
+
     typeWriter();
+
+    const sections = document.querySelectorAll("section");
+    const options = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          history.replaceState(null, null, `#${entry.target.id}`);
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
   });
 </script>
