@@ -5,8 +5,13 @@ import Node from "./icons/Node.astro";
 import CSharp from "./icons/CSharp.astro";
 import VisualBasic from "./icons/VisualBasic.astro";
 import SQL from "./icons/SQL.astro";
+import ASPNET from "./icons/ASPNET.astro";
+import ASPNETCore from "./icons/ASPNETCore.astro";
 import DotNet from "./icons/DotNet.astro";
+import NetCore from "./icons/NetCore.astro";
 import JavaScript from "./icons/JavaScript.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import JQuery from "./icons/JQuery.astro";
 
 const TAGS = {
   VisualBasic: {
@@ -19,20 +24,45 @@ const TAGS = {
     class: "bg-black text-white",
     icon: CSharp,
   },
-  SQL: {
-    name: "SQL",
-    class: "bg-black text-white",
-    icon: SQL,
-  },
   DotNet: {
     name: ".NET",
     class: "bg-black text-white",
     icon: DotNet,
   },
+  NetCore: {
+    name: ".NET Core",
+    class: "bg-black text-white",
+    icon: NetCore,
+  },
+  ASPNET: {
+    name: "ASP.NET",
+    class: "bg-black text-white",
+    icon: ASPNET,
+  },
+  ASPNETCore: {
+    name: "ASP.NET Core",
+    class: "bg-black text-white",
+    icon: ASPNETCore,
+  },
+  SQL: {
+    name: "SQL",
+    class: "bg-black text-white",
+    icon: SQL,
+  },
   JavaScript: {
     name: "JS",
     class: "bg-black text-white",
     icon: JavaScript,
+  },
+  JQuery: {
+    name: "JQuery",
+    class: "bg-black text-white",
+    icon: JQuery,
+  },
+  Tailwind: {
+    name: "Tailwind",
+    class: "bg-black text-white",
+    icon: Tailwind,
   },
   React: {
     name: "React",
@@ -60,13 +90,16 @@ const EXPERIENCE = [
       "Responsable de mantener ERPs y aplicaciones web de todo el grupo empresarial, resolver incidencias y escalar las soluciones actuales mejorando su arquitectura y migrando hacia tecnologías más modernas. Modalidad 100% remoto y autonomía total en los desarrollos.",
     link: "https://exceltic.com/",
     tags: [
+      TAGS.CSharp,
       TAGS.VisualBasic,
       TAGS.DotNet,
-      TAGS.CSharp,
+      TAGS.ASPNET,
+      TAGS.NetCore,
+      TAGS.ASPNETCore,
       TAGS.SQL,
       TAGS.JavaScript,
-      TAGS.NodeJS,
-      TAGS.MongoDB,
+      TAGS.JQuery,
+      TAGS.Tailwind,
       TAGS.React,
     ],
   },
@@ -78,12 +111,11 @@ const EXPERIENCE = [
       "Encargado de la migración de ERPs heredadas y de desarrollos de nuevas soluciones web para mejorar la eficiencia y efectividad de los procesos productivos. Modalidad de trabajo híbrida, formando parte del equipo de desarrolladores.",
     link: "https://www.iatecc.com/",
     tags: [
-      TAGS.VisualBasic,
-      TAGS.MongoDB,
-      TAGS.DotNet,
-      TAGS.SQL,
-      TAGS.JavaScript,
       TAGS.CSharp,
+      TAGS.ASPNET,
+      TAGS.SQL,
+      TAGS.MongoDB,
+      TAGS.JavaScript,
       TAGS.React,
       TAGS.NodeJS,
     ],
@@ -96,14 +128,14 @@ const EXPERIENCE = [
       "Responsable Junior en el departamento IT, encargado de la programación de vehículos de guiado automático o AGVs. Definir el esquema funcional del cliente, desarrollar la solución integral para la automatización de la planta y realizar la puesta en marcha.",
     link: "https://new.abb.com/products/robotics/es/robots/autonomous-mobile-robots",
     tags: [
+      TAGS.JavaScript,
+      TAGS.SQL,
+      TAGS.ASPNETCore,
+      TAGS.NetCore,
+      TAGS.ASPNET,
       TAGS.DotNet,
       TAGS.VisualBasic,
-      TAGS.SQL,
       TAGS.CSharp,
-      TAGS.React,
-      TAGS.NodeJS,
-      TAGS.MongoDB,
-      TAGS.JavaScript,
     ],
   },
 ];
