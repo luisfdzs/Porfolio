@@ -18,7 +18,7 @@ import Projects from "../components/Projects.astro";
   description="Contrata a Luis para crear tu aplicación web. Desarrollador Web especializado en crear aplicaciones únicas."
 >
   <main class="px-4 pl-20 lg:pb-0">
-    <SectionContainer id="top" class="pt-64">
+    <SectionContainer class="pt-64">
       <img
         class="rounded-full w-20 h-20 mb-4"
         src="/luisPhoto.webp"
@@ -32,8 +32,7 @@ import Projects from "../components/Projects.astro";
       <h2 class="text-xl lg:text-2xl opacity-80 text-gray max-w-[700px]">
         Tengo <span class="text-green-200/90">+3 años de experiencia</span> como
         <span class="text-red-200/90">Desarrollador Web.</span> Soy de Vigo, Galicia.
-        Especializado en crear soluciones web integrales y únicas, priorizando los
-        requerimientos reales del cliente.
+        Especializado en crear soluciones web integrales y únicas.
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap">
@@ -50,7 +49,6 @@ import Projects from "../components/Projects.astro";
         </SocialMedia>
       </nav>
     </SectionContainer>
-    <SectionContainer id="sobre-mi" />
     <SectionContainer id="experiencia" class="pt-20">
       <h2 class="text-3xl font-semi-bold mb-6 flex gap-x-3 items-center">
         <Briefcase class="size-7" />
@@ -86,21 +84,70 @@ import Projects from "../components/Projects.astro";
     typeWriter();
 
     const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
     const options = {
       root: null,
-      threshold: 0.5,
+      threshold: 0.1, // Reducido a 0.1 para mayor sensibilidad
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          history.replaceState(null, document.title, `#${entry.target.id}`);
+          const newUrl = `#${entry.target.id}`;
+          if (history.state !== newUrl) {
+            history.replaceState(null, document.title, newUrl);
+          }
+          // Remove active class from all links
+          navLinks.forEach((link) => link.classList.remove("active"));
+          // Add active class to the link corresponding to the current section
+          const activeLink = document.querySelector(`a[href="${newUrl}"]`);
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
         }
       });
     }, options);
 
     sections.forEach((section) => {
       observer.observe(section);
+    });
+
+    // Prioritize the section occupying the most space in the viewport
+    window.addEventListener("scroll", () => {
+      let maxVisibleArea = 0;
+      let currentSection = "";
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const visibleArea =
+          Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+        if (
+          visibleArea > maxVisibleArea &&
+          visibleArea / window.innerHeight >= 0.6
+        ) {
+          maxVisibleArea = visibleArea;
+          currentSection = "#" + section.id;
+        }
+      });
+
+      if (
+        currentSection !== "" &&
+        window.innerHeight + window.scrollY >= document.body.offsetHeight
+      ) {
+        currentSection = "#contacto";
+      }
+      if (currentSection) {
+        if (history.state !== currentSection) {
+          history.replaceState(null, document.title, currentSection);
+        }
+        navLinks.forEach((link) => link.classList.remove("active"));
+        const activeLink = document.querySelector(
+          `a[href="${currentSection}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
     });
   });
 </script>

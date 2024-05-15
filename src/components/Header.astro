@@ -14,13 +14,25 @@ import ArrowUp from "./icons/ArrowUp.astro";
   `}
 >
   <nav class="flex flex-row gap-x-10 opacity-80">
-    <a class="hover:scale-110 transition" href="#"><ArrowUp /></a>
-    <a class="hover:scale-110 transition" href="#experiencia">Experiencia</a>
-    <a class="hover:scale-110 transition" href="#proyectos">Proyectos</a>
-    <a class="hover:scale-110 transition" href="#contacto">Contacto</a>
+    <a class="nav-link" href="#"><ArrowUp /></a>
+    <a class="nav-link" href="#experiencia">Experiencia</a>
+    <a class="nav-link" href="#proyectos">Proyectos</a>
+    <a class="nav-link" href="#contacto">Contacto</a>
   </nav>
 </header>
 <style>
+  .nav-link {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .nav-link:hover {
+    transform: scale(1.1);
+  }
+  .nav-link.active {
+    font-weight: bold;
+    transform: scale(1.1);
+  }
+
   /* Estilo para pantallas de ordenador */
   @media only screen and (min-width: 1000px) {
     .nav-header {
@@ -51,3 +63,35 @@ import ArrowUp from "./icons/ArrowUp.astro";
     }
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const options = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const newUrl = `#${entry.target.id}`;
+          if (history.state !== newUrl) {
+            history.replaceState(null, document.title, newUrl);
+          }
+          // Remove active class from all links
+          navLinks.forEach((link) => link.classList.remove("active"));
+          // Add active class to the link corresponding to the current section
+          const activeLink = document.querySelector(`a[href="${newUrl}"]`);
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
