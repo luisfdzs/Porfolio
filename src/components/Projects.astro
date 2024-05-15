@@ -2,8 +2,20 @@
 import React from "./icons/React.astro";
 import Mongo from "./icons/MongoDB.astro";
 import Node from "./icons/Node.astro";
+import Redux from "./icons/Redux.astro";
+import ReactRouter from "./icons/ReactRouter.astro";
+import GraphQL from "./icons/GraphQL.astro";
+import TypeScript from "./icons/TypeScript.astro";
+import Docker from "./icons/Docker.astro";
+import Squeezy from "./icons/Squeezy.astro";
+import JavaScript from "./icons/JavaScript.astro";
 
 const TAGS = {
+  JavaScript: {
+    name: "JavaScript",
+    class: "bg-black text-white",
+    icon: JavaScript,
+  },
   React: {
     name: "React",
     class: "bg-black text-white",
@@ -12,46 +24,96 @@ const TAGS = {
   NodeJS: {
     name: "Node.js",
     class: "bg-black text-white",
-    icon: Mongo,
+    icon: Node,
   },
   MongoDB: {
     name: "MongoDB",
     class: "bg-black text-white",
-    icon: Node,
+    icon: Mongo,
+  },
+  Redux: {
+    name: "Redux",
+    class: "bg-black text-white",
+    icon: Redux,
+  },
+  ReactRouter: {
+    name: "React Router",
+    class: "bg-black text-white",
+    icon: ReactRouter,
+  },
+  GraphQL: {
+    name: "GraphQL",
+    class: "bg-black text-white",
+    icon: GraphQL,
+  },
+  TypeScript: {
+    name: "TypeScript",
+    class: "bg-black text-white",
+    icon: TypeScript,
+  },
+  Docker: {
+    name: "Docker",
+    class: "bg-black text-white",
+    icon: Docker,
+  },
+  Squeezy: {
+    name: "Squeezy",
+    class: "bg-black text-white",
+    icon: Squeezy,
   },
 };
 
 const PROJECTS = [
   {
-    title: "PhoneBook",
+    title: "Curso FullStackOpen",
+    subtitle: "Inmersión Profunda en el Desarrollo Web Moderno",
     description:
-      "PhoneBook to add, update and delete contacts with name and number",
+      "Actualmente estoy cursando 'Full Stack Open: Inmersión Profunda en el Desarrollo Web Moderno'. Una iniciativa de la universidad de Helsinki que abarca todo el stack tecnológico más actual para desarrollo web. Este proyecto contiene la solución a todos los ejercicios planteados en el curso.",
     link: "#",
     github: "#",
-    image: "/PhoneBook.webp",
-    tags: [TAGS.React, TAGS.NodeJS, TAGS.MongoDB],
+    image: "/FullStackOpen.webp",
+    tags: [
+      TAGS.JavaScript,
+      TAGS.React,
+      TAGS.NodeJS,
+      TAGS.MongoDB,
+      TAGS.Redux,
+      TAGS.ReactRouter,
+      TAGS.GraphQL,
+      TAGS.TypeScript,
+      TAGS.Docker,
+      TAGS.Squeezy,
+    ],
   },
 ];
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, image }) => {
+  PROJECTS.map(({ title, subtitle, description, tags, image }) => {
     return (
       <>
         <article>
-          <h3 class="text-2xl font-semi-bold text-red-200/80 mb-2">{title}</h3>
-          <p class="text-lg mb-4 text-pretty text-white">{description}</p>
-          <ul class="flex gap-x-2 flex-row mb-2">
-            {tags.map((tag) => (
-              <li class="text-white">
-                <span
-                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 border items-center`}
-                >
-                  <tag.icon class="size-4" />
-                  {tag.name}
-                </span>
-              </li>
-            ))}
+          <h3 class="text-2xl font-bold text-red-200/80 mb-2">{title}</h3>
+          <h3 class="text-2xl text-green-200/80 mb-2">{subtitle}</h3>
+          <p class="text-lg my-4 text-pretty text-white">{description}</p>
+          <ul class="flex gap-x-2 flex-row mb-4">
+            <div class="logos">
+              <div class="logos-slide">
+                {tags.map((tag) => (
+                  <li class="text-white">
+                    <span
+                      class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 mb-4 items-center`}
+                    >
+                      <div class="flex flex-col items-center px-2">
+                        <tag.icon class="size-7" />
+                        <br />
+                        {tag.name}
+                      </div>
+                    </span>
+                  </li>
+                ))}
+              </div>
+            </div>
           </ul>
           <img
             class="rounded shadow-2xl shadow-white/20"
@@ -63,3 +125,62 @@ const PROJECTS = [
     );
   })
 }
+<script>
+  var slides = document.querySelectorAll(".logos-slide");
+  slides.forEach((slide) => {
+    var copy = slide.cloneNode(true);
+    if (slide.parentNode) slide.parentNode.appendChild(copy);
+  });
+</script>
+<style>
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .logos {
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+  }
+
+  .logos:before,
+  .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0));
+  }
+
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0));
+  }
+
+  .logos-slide {
+    display: inline-block;
+    animation: 30s slide infinite linear;
+  }
+
+  .logos-slide > li {
+    display: inline-block;
+  }
+
+  .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+  }
+</style>
